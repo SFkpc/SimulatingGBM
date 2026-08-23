@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>幾何Brown運動のシミュレーション</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="container">
+    <h1>幾何Brown運動のシミュレーション</h1>
+
+    <section class="description">
+      <p>
+        幾何Brown運動は，次の確率微分方程式に従う確率過程です．
+      </p>
+
+      <p class="equation">
+        dS<sub>t</sub> = μS<sub>t</sub> dt + σS<sub>t</sub> dW<sub>t</sub>
+      </p>
+
+      <p>
+        初期値を S<sub>0</sub> とすると，その解は
+      </p>
+
+      <p class="equation">
+        S<sub>t</sub> = S<sub>0</sub>
+        exp((μ − σ²/2)t + σW<sub>t</sub>)
+      </p>
+
+      <p>
+        となります．このアプリでは，この解を時間方向に離散化し，
+        Brown運動の増分を標準正規乱数から生成することで，
+        幾何Brown運動をシミュレーションしています．
+      </p>
+    </section>
+
+    <section class="controls">
+      <div class="control">
+        <label for="mode">表示方法</label>
+
+        <select id="mode">
+          <option value="all">軌跡のみ</option>
+          <option value="animation">運動している</option>
+        </select>
+      </div>
+
+      <div class="control">
+        <label for="mu">期待収益率 μ</label>
+
+        <div class="parameter-input">
+          <input
+            type="range"
+            id="mu"
+            min="-1"
+            max="1"
+            step="0.01"
+            value="0.10"
+          >
+
+          <input
+            type="number"
+            id="muNumber"
+            min="-1"
+            max="1"
+            step="0.01"
+            value="0.10"
+          >
+        </div>
+      </div>
+
+      <div class="control">
+        <label for="sigma">ボラティリティ σ</label>
+
+        <div class="parameter-input">
+          <input
+            type="range"
+            id="sigma"
+            min="0"
+            max="2"
+            step="0.01"
+            value="0.20"
+          >
+
+          <input
+            type="number"
+            id="sigmaNumber"
+            min="0"
+            max="2"
+            step="0.01"
+            value="0.20"
+          >
+        </div>
+      </div>
+
+      <div class="control">
+        <label for="initialValue">初期値 S₀</label>
+
+        <div class="parameter-input">
+          <input
+            type="range"
+            id="initialValue"
+            min="1"
+            max="1000"
+            step="1"
+            value="100"
+          >
+
+          <input
+            type="number"
+            id="initialValueNumber"
+            min="1"
+            max="1000"
+            step="1"
+            value="100"
+          >
+        </div>
+      </div>
+
+      <div class="control">
+        <label for="simulationTime">シミュレーション時間 t</label>
+
+        <div class="parameter-input">
+          <input
+            type="range"
+            id="simulationTime"
+            min="0.1"
+            max="10"
+            step="0.1"
+            value="1"
+          >
+
+          <input
+            type="number"
+            id="simulationTimeNumber"
+            min="0.1"
+            max="10"
+            step="0.1"
+            value="1"
+          >
+        </div>
+      </div>
+
+      <div class="control">
+        <label for="paths">パス数</label>
+
+        <div class="parameter-input">
+          <input
+            type="range"
+            id="paths"
+            min="1"
+            max="100"
+            step="1"
+            value="10"
+          >
+
+          <input
+            type="number"
+            id="pathsNumber"
+            min="1"
+            max="100"
+            step="1"
+            value="10"
+          >
+        </div>
+      </div>
+
+      <div class="control">
+        <label for="speed">表示速度</label>
+
+        <div class="parameter-input">
+          <input
+            type="range"
+            id="speed"
+            min="0.1"
+            max="5"
+            step="0.1"
+            value="1"
+          >
+
+          <input
+            type="number"
+            id="speedNumber"
+            min="0.1"
+            max="5"
+            step="0.1"
+            value="1"
+          >
+        </div>
+      </div>
+
+      <button id="startButton">シミュレーション開始</button>
+    </section>
+
+    <section class="chart-container">
+      <canvas id="chart"></canvas>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  color: #eee;
+  font-family:
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    "Yu Gothic",
+    sans-serif;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: 40px auto;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 500;
+  margin: 0 0 25px;
+}
+
+.description {
+  margin-bottom: 30px;
+  padding: 18px 20px;
+  border: 1px solid #333;
+  background: #080808;
+  color: #bbb;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.description p {
+  margin: 8px 0;
+}
+
+.equation {
+  color: #eee;
+  text-align: center;
+  font-size: 17px;
+  padding: 8px 0;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-size: 14px;
+  color: #bbb;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+.parameter-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #ddd;
+}
+
+input[type="number"] {
+  width: 72px;
+  padding: 7px;
+  background: #111;
+  color: #eee;
+  border: 1px solid #444;
+}
+
+select {
+  background: #111;
+  color: #eee;
+  border: 1px solid #444;
+  padding: 9px;
+}
+
+button {
+  align-self: end;
+  background: #eee;
+  color: #000;
+  border: none;
+  padding: 11px 18px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #bbb;
+}
+
+.chart-container {
+  height: 600px;
+  border: 1px solid #333;
+  background: #050505;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 94%;
+    margin: 25px auto;
+  }
+
+  .chart-container {
+    height: 450px;
+  }
+}
