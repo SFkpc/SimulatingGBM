@@ -9,11 +9,11 @@
 
 <body>
   <main class="container">
-    <h1>幾何Brown運動のシミュレーション</h1>
+    <h1>◇ 幾何Brown運動のシミュレーション ◇</h1>
 
     <section class="description">
       <p>
-        幾何Brown運動は，次の確率微分方程式に従う確率過程です．
+        幾何Brown運動は，株価の変動を表す代表的な数理モデルであり，次の確率微分方程式に従う確率過程です．
       </p>
 
       <p class="equation">
@@ -30,9 +30,8 @@
       </p>
 
       <p>
-        となります．このアプリでは，この解を時間方向に離散化し，
-        Brown運動の増分を標準正規乱数から生成することで，
-        幾何Brown運動をシミュレーションしています．
+        となります．ここでは，この解を時間方向に離散化しBrown運動の増分を標準正規乱数から生成することで，
+        幾何Brown運動をシミュレーションします．
       </p>
     </section>
 
@@ -41,8 +40,8 @@
         <label for="mode">表示方法</label>
 
         <select id="mode">
-          <option value="all">軌跡のみ</option>
-          <option value="animation">運動している</option>
+          <option value="animation">運動</option>
+          <option value="all">軌跡</option>
         </select>
       </div>
 
@@ -190,7 +189,7 @@
         </div>
       </div>
 
-      <button id="startButton">シミュレーション開始</button>
+      <button id="startButton">シミュレーション　開始</button>
     </section>
 
     <section class="chart-container">
